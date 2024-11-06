@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Center the image */
+    height: 50vh; /* Make body take full viewport height */
+    min-height: 60vh; /* Ensure body is at least full height of viewport */
+}
+
+html, body {
+    height: 130%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+}
+
+body.home {
+    background-image: url('squirrel1.png');
+    background-size: cover; /* or 'contain' depending on your needs */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.about {
+    background-image: url('elephant.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.gallery {
+    background-image: url('fox.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.download {
+    background-image: url('dog.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    background-color: #ebedf2;
+    padding: 0; /* Remove padding to control height with flex */
+    height: 64px; /* Set a specific height for the header */
+}
+
+.header-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Center items vertically */
+    height: 99%; /* Ensure full height for the container */
+}
+
+.logo {
+    margin-right: auto; /* Push nav to the right */
+    padding-left: 10px;
+}
+
+nav {
+    margin-left: auto; /* Align nav to the right */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display nav items in a row */
+    height: 1%; /* Ensure the ul takes full height */
+}
+
+nav ul li {
+    display: flex; /* Use flexbox for li to align items */
+    align-items: center; /* Center items vertically */
+}
+
+nav a {
+    color: rgb(12, 12, 12); /* Default color for all buttons */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 15px; /* Add padding for clickable area, adjust for height */
+    height: 54%; /* Make anchor fill the li height */
+    display: flex; /* Use flexbox for the anchor */
+    align-items: center; /* Center text vertically */
+    transition: background-color 0.3s; /* Smooth transition */
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Background on hover */
+}
+
+nav a.active {
+    background-color: #eb2615; /* Active button color */
+    color: white; /* Text color for active link */
+}
