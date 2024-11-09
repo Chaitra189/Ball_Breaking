@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 body {
     margin: 0;
-    font-family: 'playfair display', cursive;
+    font-family: 'Montserrat', sans-serif;
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center; /* Center the image */
@@ -17,28 +17,25 @@ html, body {
 }
 
 body.home {
-    background-image: url('background.png'); /* Path to your image */
+    background-image: url('images/background1.png'); /* Path to your image */
     background-size: cover; /* or 'contain' depending on your needs */
     background-repeat: no-repeat;
     background-position: center;
 }
 
 body.about {
-    background-image: url('elephant.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 body.gallery {
-    background-image: url('fox.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 body.download {
-    background-image: url('dog.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -62,8 +59,8 @@ header {
     padding-left: 10px;
 }
 
-.highlighted-text {
-    font-family: 'playfair display', sans-serif;
+.custom-font {
+    font-family: 'Montserrat', sans-serif;
     font-size: 50px; /* Adjust as needed */
     font-weight: 700;
     color: #333; /* Customize color */
@@ -73,8 +70,8 @@ header {
     text-align: center; /* Center if desired */
 }
 
-.highlight{
-    font-family: 'playfair display', sans-serif;
+.custom-font1{
+    font-family: 'Montserrat', sans-serif;
     font-size: 50px; /* Adjust as needed */
     font-weight: 700;
     color: #333; /* Customize color */
