@@ -16,6 +16,14 @@ body {
     overflow: hidden; /* Prevents scrolling */
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure it fills the full screen */
+    overflow-y: auto; /* This will add a vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar if any */
+}
+
 body.home {
     background-image: url('images/background2.png'); /* Path to your image */
     background-size: cover; /* or 'contain' depending on your needs */
@@ -68,28 +76,6 @@ header {
     padding-left: 10px;
 }
 
-.game-title {
-    display: flex;
-    justify-content: center;
-    font-family: 'RebellionSquad', sans-serif;
-    margin-left: 170px;
-    margin-top: 40px;
-    text-align: center;
-    width: 100%;
-    display: block;
-}
-
-.game-title svg text {
-    font-family: 'RebellionSquad', sans-serif;
-    font-size: 50px; /* Adjust size as needed */
-}
-
-svg {
-    width: 200%; /* Adjust as needed */
-    max-width: 600px;
-    
-}
-
 nav {
     margin-left: auto; /* Align nav to the right */
 }
@@ -112,6 +98,7 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     padding: 15px 15px; /* Add padding for clickable area, adjust for height */
+    margin-right: 15px;
     height: 60%; /* Make anchor fill the li height */
     display: flex; /* Use flexbox for the anchor */
     align-items: center; /* Center text vertically */
@@ -126,6 +113,28 @@ nav a:hover {
 nav a.active {
     background-color: #17b8f2; /* Active button color */
     color: white; /* Text color for active link */
+}
+
+.game-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'RebellionSquad', sans-serif;
+    margin-left: 170px;
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.game-title svg text {
+    font-family: 'RebellionSquad', sans-serif;
+    font-size: 50px; /* Adjust size as needed */
+}
+
+svg {
+    width: 200%; /* Adjust as needed */
+    max-width: 600px;
+    
 }
 
 .ball {
@@ -213,15 +222,13 @@ nav a.active {
     box-shadow: #4d4c4c;
 }
 
-/* Your other CSS styles */
-
-
 /* Style for the Play Button */
 .dwn-btn {
     display: block; /* Ensure the button is on a new line */
     margin-left: 533px; /* Center the button horizontally and add some space above and below */
     margin-top: 20px;
     padding: 15px 30px; /* Make the button bigger */
+    padding-bottom: 12px;
     font-family: 'Montserrat', sans-serif; /* Use the same font as your text */
     font-size: 18px; /* Adjust the font size */
     font-weight: bold; /* Make the text bold */
@@ -253,4 +260,102 @@ nav a.active {
 
 .dwn-btn:active {
     transform: translateY(2px);
+}
+
+
+/* Download Page Content */
+/* MAIN CONTENT */
+.content {
+    margin-top: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+.game-info h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-info p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+.download-button button {
+    background-color: #f59313;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-button button:hover {
+    background-color: #efca0d;
+    transform: translateY(-3px);
+}
+
+.download-button button:active {
+    transform: translateY(2px);
+}
+
+.download-button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* SYSTEM REQUIREMENTS SECTION */
+.system-requirements {
+    background-color: #fff;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
+}
+
+.system-requirements h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.system-requirements ul {
+    list-style-type: none;
+}
+
+.system-requirements li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-media {
+    font-size: 16px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
 }
