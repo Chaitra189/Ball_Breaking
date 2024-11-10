@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@font-face {
+    font-family: 'RebellionSquad';
+    src: url('fonts/RebellionSquad-ZpprZ.ttf') format('truetype'); /* Adjust path */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Center the image */
+    height: 100%; /* Make body take full viewport height */
+    
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+    height: 100%; /* Sets height to viewport height */
+    
+}
+
+body.home {
+    background-image: url('images/background2.png'); /* Path to your image */
+    background-size: cover; /* or 'contain' depending on your needs */
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    display: flex; /* If you need flexbox alignment */
+    flex-direction: column; /* If you have child elements to align */
+    justify-content: flex-start; /* Align the content if needed */
+    
+}
+
+body.about {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.gallery {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body.download {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency with the last number (0 = fully transparent, 1 = opaque) */
+    position: fixed; /* This keeps the header at the top without affecting body height */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px; /* Fixed height for header */
+    z-index: 999; /* Ensure header stays on top */
+}
+
+.header-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Center items vertically */
+    height: 100%; /* Ensure full height for the container */
+}
+
+.logo {
+    margin-right: auto; /* Push nav to the right */
+    padding-left: 10px;
+}
+
+.game-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'RebellionSquad', sans-serif;
+    margin-left: 170px;
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.game-title svg text {
+    font-family: 'RebellionSquad', sans-serif;
+    font-size: 50px; /* Adjust size as needed */
+}
+
+svg {
+    width: 200%; /* Adjust as needed */
+    max-width: 600px;
+    
+}
+
+nav {
+    margin-left: auto; /* Align nav to the right */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display nav items in a row */
+    height: 100%; /* Ensure the ul takes full height */
+}
+
+nav ul li {
+    display: flex; /* Use flexbox for li to align items */
+    align-items: center; /* Center items vertically */
+}
+
+nav a {
+    color: rgb(12, 12, 12); /* Default color for all buttons */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 15px; /* Add padding for clickable area, adjust for height */
+    height: 60%; /* Make anchor fill the li height */
+    display: flex; /* Use flexbox for the anchor */
+    align-items: center; /* Center text vertically */
+    transition: background-color 0.3s; /* Smooth transition */
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: rgb(173, 172, 172); /* Adjust transparency with the last number (0 = fully transparent, 1 = opaque) */
+}
+
+nav a.active {
+    background-color: #17b8f2; /* Active button color */
+    color: white; /* Text color for active link */
+}
+
+.ball {
+    animation: bounce 0.75s infinite;
+    transform-origin: center center; /* Make sure it bounces around the center */
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.animated-figure {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    animation: move 5s infinite; /* You can add an animation here */
+}
+
+@keyframes move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+.thought-bubble {
+    position: absolute;
+    top: -80px; /* Adjust depending on image size */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    padding: 12px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Tail of the thought bubble */
+.thought-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+}
+
+/* Floating animation for the thought bubble */
+@keyframes floatBubble {
+    0%, 100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    25%, 85% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Apply the animation to the bubble (show it every 2 seconds) */
+.thought-bubble {
+    animation: floatBubble 5s ease-in-out infinite;
+}
+
+/* CSS to position the image in the bottom-right corner */
+.bottom-right-image {
+    position: fixed; /* Fixes the image relative to the viewport */
+    bottom: 20px; /* Distance from the bottom of the page */
+    right: 20px; /* Distance from the right of the page */
+    width: 350px; /* Set a size for the image */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 9999; /* Ensure the image is above other elements */
+    color: #efca0d;
+    box-shadow: #4d4c4c;
+}
+
+/* Your other CSS styles */
+
+
+/* Style for the Play Button */
+.dwn-btn {
+    display: block; /* Ensure the button is on a new line */
+    margin-left: 533px; /* Center the button horizontally and add some space above and below */
+    margin-top: 20px;
+    padding: 15px 30px; /* Make the button bigger */
+    font-family: 'Montserrat', sans-serif; /* Use the same font as your text */
+    font-size: 18px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #020202; /* White text color */
+    background: linear-gradient(145deg, #f59313, #f3bf15); /* Gradient background */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border: none; /* Remove default border */
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer when hovering */
+    text-transform: uppercase; /* Make the button text uppercase */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+}
+
+/* Button hover effects */
+.dwn-btn:hover {
+    background: linear-gradient(145deg, #efca0d, #ef960f); /* Brighter gradient on hover */
+    transform: translateY(-3px); /* Slightly lift the button */
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Active state (pressed down button effect) */
+.dwn-btn:active {
+    transform: translateY(2px); /* Button presses down */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Glowing effect for the button icon */
+.dwn-btn i {
+    text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
+}
+
+/* Glowing effect for the button */
+.dwn-btn:focus {
+    outline: none;
+    box-shadow: 0px 0px 15px rgba(235, 202, 33, 0.8);
+}
+
+/* Glowing animation for the icon */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
+    }
+    50% {
+        text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 0 30px #ff8c00;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
+    }
+}
