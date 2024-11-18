@@ -353,7 +353,7 @@ body {
 /* Text Box Styling */
 .text-box {
     width: 100%;
-    max-width: 450px; /* Adjust the size */
+    max-width: 800px; /* Adjust the size */
     margin-top: 50px; /* Positioning the text box a bit lower */
     padding: 30px; /* Add more padding for a spacious feel */
     background: linear-gradient(135deg, #e8c1f8, #d6f5f3); /* Soft gradient background */
