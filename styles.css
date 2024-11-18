@@ -70,11 +70,12 @@ header {
     align-items: center; /* Center items vertically */
     height: 100%; /* Ensure full height for the container */
 }
-
-.logo {
-    margin-right: auto; /* Push nav to the right */
-    padding-left: 10px;
-}
+    .logo {
+        font-size: 30px; /* Adjust size as needed */
+        display: flex; /* Aligns the emoji with the nav items */
+        align-items: center; /* Centers the emoji vertically */
+        margin-right: 15px; /* Optional: Adds spacing between logo and nav */
+    }
 
 .game-title {
     display: flex;
@@ -233,7 +234,7 @@ nav a.active {
     font-family: 'Montserrat', sans-serif; /* Use the same font as your text */
     font-size: 18px; /* Adjust the font size */
     font-weight: bold; /* Make the text bold */
-    color: #020202; /* White text color */
+    color: #000; /* White text color */
     background: linear-gradient(145deg, #f59313, #f3bf15); /* Gradient background */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     border: none; /* Remove default border */
@@ -278,4 +279,237 @@ nav a.active {
     100% {
         text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
     }
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background image applied to the entire body */
+body {
+    font-family: 'Courgette', sans-serif;
+    background-image: url('gallery/bgi3.png'); /* Replace with your background image path */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #808080;
+    overflow-y: auto;
+    animation: fadeInBody 1s ease-in-out;
+}
+
+/* Fade-in animation for body */
+@keyframes fadeInBody {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header styling with sticky positioning */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(51, 51, 51, 0.85); /* Slightly transparent */
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Main container layout with fixed width and responsive grid */
+.main-container {
+    display: flex;
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;  /* Center the content vertically */
+    flex-direction: column; /* Stack elements vertically */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    animation: slideIn 1s ease-out;
+    gap: 30px; /* Increase space between elements */
+}
+
+/* Animation for main container */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Text Box Styling */
+.text-box {
+    width: 100%;
+    max-width: 450px; /* Adjust the size */
+    margin-top: 50px; /* Positioning the text box a bit lower */
+    padding: 30px; /* Add more padding for a spacious feel */
+    background: linear-gradient(135deg, #e8c1f8, #d6f5f3); /* Soft gradient background */
+    color: #333;
+    border-radius: 20px; /* Round corners */
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInTextBox 1s ease-out; /* Fade-in animation */
+}
+
+/* Hover Effect */
+.text-box:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Fade-in Animation for Text Box */
+@keyframes fadeInTextBox {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Gallery container layout with responsive grid */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%; /* Use the full width for a cleaner layout */
+    padding-left: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Gallery item (images) */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+    cursor: pointer;
+    animation: fadeInGalleryItem 1s ease-in-out;
+}
+
+/* Hover effect for gallery items */
+.gallery-item:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    filter: brightness(1.2); /* Slight brightness increase */
+}
+
+/* Animation for gallery items */
+@keyframes fadeInGalleryItem {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Image styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+/* Hover effect for images */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal Styles for Expanded Image View */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeInModal 0.5s ease-out;
+}
+
+/* Animation for modal fade-in */
+@keyframes fadeInModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Image inside modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;  /* Maximum width of the expanded image */
+    height: auto;
+    border-radius: 10px;
+    animation: scaleInImage 0.5s ease-out;
+    transition: transform 0.3s ease;
+}
+
+/* Animation for the image inside the modal */
+@keyframes scaleInImage {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close button for the modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #00bfff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Caption text for the modal */
+#caption {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
