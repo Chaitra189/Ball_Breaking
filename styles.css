@@ -147,6 +147,24 @@ svg {
     50% { transform: translateY(-5px); }
 }
 
+.game-info-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto; /* Centers the box */
+    margin-top: 55px;
+    margin-left: 440px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+    text-align: center;
+}
+
+.game-info-box p {
+    font-size: 16px;
+    color: #0a0a0a;
+    line-height: 1.6;
+}
+
 .animated-figure {
     position: absolute;
     left: 0;
@@ -222,7 +240,7 @@ svg {
     box-shadow: #4d4c4c;
 }
 
-/* Style for the Play Button */
+/* Style for the download Button */
 .dwn-btn {
     display: block; /* Ensure the button is on a new line */
     margin-left: 533px; /* Center the button horizontally and add some space above and below */
@@ -265,6 +283,13 @@ svg {
 
 /* Download Page Content */
 /* MAIN CONTENT */
+body.download {
+    background-image: url('images/gpt.png'); /* Path to your background image */
+    background-size: cover; /* Makes the image cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-position: center; /* Centers the image */
+}
+
 .content {
     margin-top: 20px;
     padding: 40px;
@@ -274,7 +299,7 @@ svg {
 .game-info h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #0b0b0b;
 }
 
 .game-info p {
@@ -285,7 +310,7 @@ svg {
 }
 
 .download-button button {
-    background-color: #f59313;
+    background: linear-gradient(145deg, #0dabef, #0fe7ef);
     padding: 15px 40px;
     font-size: 20px;
     font-weight: bold;
@@ -297,12 +322,8 @@ svg {
 }
 
 .download-button button:hover {
-    background-color: #efca0d;
+    background-color: #3cc8ff;
     transform: translateY(-3px);
-}
-
-.download-button button:active {
-    transform: translateY(2px);
 }
 
 .download-button a {
@@ -312,12 +333,14 @@ svg {
 
 /* SYSTEM REQUIREMENTS SECTION */
 .system-requirements {
-    background-color: #fff;
+    background: rgba(0, 0, 0, 0.8);
     padding-top: 1px;
     padding-bottom: 20px;
     margin-top: 30px;
     border-radius: 8px;
     box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: rgb(240, 230, 230);
 }
 
 .system-requirements h2 {
@@ -359,3 +382,34 @@ footer .social-media a {
 footer .social-media a:hover {
     text-decoration: underline;
 }
+
+.game-video {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+}
+
+.game-video h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.video-container {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
