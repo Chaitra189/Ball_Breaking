@@ -13,15 +13,15 @@ body {
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center; /* Center the image */
     height: 100%; /* Make body take full viewport height */
-    
+    overflow: hidden; /* Prevents scrolling */
 }
 
-html, body {
+body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevents scrolling */
-    height: 100%; /* Sets height to viewport height */
-    
+    height: 100%; /* Ensure it fills the full screen */
+    overflow-y: auto; /* This will add a vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar if any */
 }
 
 body.home {
@@ -70,33 +70,10 @@ header {
     align-items: center; /* Center items vertically */
     height: 100%; /* Ensure full height for the container */
 }
-    .logo {
-        font-size: 30px; /* Adjust size as needed */
-        display: flex; /* Aligns the emoji with the nav items */
-        align-items: center; /* Centers the emoji vertically */
-        margin-right: 15px; /* Optional: Adds spacing between logo and nav */
-    }
 
-.game-title {
-    display: flex;
-    justify-content: center;
-    font-family: 'RebellionSquad', sans-serif;
-    margin-left: 170px;
-    margin-top: 40px;
-    text-align: center;
-    width: 100%;
-    display: block;
-}
-
-.game-title svg text {
-    font-family: 'RebellionSquad', sans-serif;
-    font-size: 50px; /* Adjust size as needed */
-}
-
-svg {
-    width: 200%; /* Adjust as needed */
-    max-width: 600px;
-    
+.logo {
+    margin-right: auto; /* Push nav to the right */
+    padding-left: 10px;
 }
 
 nav {
@@ -121,6 +98,7 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     padding: 15px 15px; /* Add padding for clickable area, adjust for height */
+    margin-right: 15px;
     height: 60%; /* Make anchor fill the li height */
     display: flex; /* Use flexbox for the anchor */
     align-items: center; /* Center text vertically */
@@ -137,6 +115,28 @@ nav a.active {
     color: white; /* Text color for active link */
 }
 
+.game-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'RebellionSquad', sans-serif;
+    margin-left: 170px;
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.game-title svg text {
+    font-family: 'RebellionSquad', sans-serif;
+    font-size: 50px; /* Adjust size as needed */
+}
+
+svg {
+    width: 200%; /* Adjust as needed */
+    max-width: 600px;
+    
+}
+
 .ball {
     animation: bounce 0.75s infinite;
     transform-origin: center center; /* Make sure it bounces around the center */
@@ -145,6 +145,24 @@ nav a.active {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+}
+
+.game-info-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto; /* Centers the box */
+    margin-top: 55px;
+    margin-left: 440px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+    text-align: center;
+}
+
+.game-info-box p {
+    font-size: 16px;
+    color: #0a0a0a;
+    line-height: 1.6;
 }
 
 .animated-figure {
@@ -222,19 +240,17 @@ nav a.active {
     box-shadow: #4d4c4c;
 }
 
-/* Your other CSS styles */
-
-
-/* Style for the Play Button */
+/* Style for the download Button */
 .dwn-btn {
     display: block; /* Ensure the button is on a new line */
     margin-left: 533px; /* Center the button horizontally and add some space above and below */
     margin-top: 20px;
     padding: 15px 30px; /* Make the button bigger */
+    padding-bottom: 12px;
     font-family: 'Montserrat', sans-serif; /* Use the same font as your text */
     font-size: 18px; /* Adjust the font size */
     font-weight: bold; /* Make the text bold */
-    color: #000; /* White text color */
+    color: #020202; /* White text color */
     background: linear-gradient(145deg, #f59313, #f3bf15); /* Gradient background */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     border: none; /* Remove default border */
@@ -244,50 +260,159 @@ nav a.active {
     transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effect */
 }
 
-/* Button hover effects */
+.dwn-btn a {
+    display: block; /* Ensure anchor tag takes up full space of the button */
+    color: inherit; /* Inherit button text color */
+    text-decoration: none; /* Remove underline from link */
+    height: 100%; /* Ensure the anchor takes full height */
+    width: 100%; /* Ensure the anchor takes full width */
+    padding: 0; /* Remove padding from anchor */
+    text-align: center; /* Center text inside the button */
+    line-height: 30px; /* Adjust based on button's height, for vertical centering */
+}
+
 .dwn-btn:hover {
-    background: linear-gradient(145deg, #efca0d, #ef960f); /* Brighter gradient on hover */
-    transform: translateY(-3px); /* Slightly lift the button */
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #efca0d, #ef960f);
+    transform: translateY(-3px);
 }
 
-/* Active state (pressed down button effect) */
 .dwn-btn:active {
-    transform: translateY(2px); /* Button presses down */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
 }
 
-/* Glowing effect for the button icon */
-.dwn-btn i {
-    text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
+
+/* Download Page Content */
+/* MAIN CONTENT */
+body.download {
+    background-image: url('images/gpt.png'); /* Path to your background image */
+    background-size: cover; /* Makes the image cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-position: center; /* Centers the image */
 }
 
-/* Glowing effect for the button */
-.dwn-btn:focus {
-    outline: none;
-    box-shadow: 0px 0px 15px rgba(235, 202, 33, 0.8);
+.content {
+    margin-top: 20px;
+    padding: 40px;
+    text-align: center;
 }
 
-/* Glowing animation for the icon */
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
-    }
-    50% {
-        text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 0 30px #ff8c00;
-    }
-    100% {
-        text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
-    }
-}
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.game-info h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0b0b0b;
 }
 
-/* Background image applied to the entire body */
+.game-info p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+.download-button button {
+    background: linear-gradient(145deg, #0dabef, #0fe7ef);
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-button button:hover {
+    background-color: #3cc8ff;
+    transform: translateY(-3px);
+}
+
+.download-button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* SYSTEM REQUIREMENTS SECTION */
+.system-requirements {
+    background: rgba(0, 0, 0, 0.8);
+    padding-top: 1px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: rgb(240, 230, 230);
+}
+
+.system-requirements h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.system-requirements ul {
+    list-style-type: none;
+}
+
+.system-requirements li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-media {
+    font-size: 16px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}
+
+.game-video {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+}
+
+.game-video h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.video-container {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 body {
     font-family: 'Courgette', sans-serif;
     background-image: url('gallery/bgi3.png'); /* Replace with your background image path */
