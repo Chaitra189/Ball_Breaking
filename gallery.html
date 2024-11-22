@@ -1,28 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="gallery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Quicksand:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <span style="font-size: 30px;">⚽</span> <!-- Emoji as logo -->
-            </div>
-            <nav class="nav-container">
-                <ul>
-                    <li><a href="home.html" >Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html" class="active">Gallery</a></li>
-                    <li><a href="download.html">Download</a></li>
-                    
-                </ul>
-            </nav>
+      <div class="header-container">
+        <div class="logo">
+          <span style="font-size: 30px">⚽</span>
         </div>
+        <h1 class="gallery-heading">GALLERY</h1>
+        <nav class="nav-container">
+          <ul>
+            <li><a href="home.html" class="button">Home</a></li>
+            <li><a href="about.html" class="button">About</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="download.html" class="button">Download</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-</body>
+    <main class="main-container">
+      <div class="text-box">
+        <p>
+          <h1>Gallery: Explore the Magic of the Playground</h1> 
+          <h3>Welcome to the gallery of Magical Ball Adventures!</h3>
+        Here, you'll find snapshots of the vibrant
+          playground where our story comes to life. Step into the world of
+          whimsy, where everyday objects like sports balls transform into
+          extraordinary companions.
+        </p>
+      </div>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="gallery/img1.png" alt="Image 1" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img2.png" alt="Image 2" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img3.png" alt="Image 3" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img8.png" alt="Image 4" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img5.png" alt="Image 5" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img6.png" alt="Image 6" />
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/img7.png" alt="Image 7" />
+        </div>
+        <div class="gallery-item">
+            <img src="gallery/img4.png" alt="Image 8" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/img9.png" alt="Image 9" />
+          </div>
+          <div class="gallery-item">
+            <img src="gallery/img10.png" alt="Image 10" />
+          </div>
+      </div>
+    </main>
+
+    <!-- Modal for Expanded Image -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img1" />
+      <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
