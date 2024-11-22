@@ -434,17 +434,6 @@ body {
     }
 }
 
-/* Header styling with sticky positioning */
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(51, 51, 51, 0.85); /* Slightly transparent */
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
 
 /* Main container layout with fixed width and responsive grid */
 .main-container {
@@ -482,7 +471,7 @@ body {
     margin-top: 50px; /* Positioning the text box a bit lower */
     padding: 30px; /* Add more padding for a spacious feel */
     background: linear-gradient(135deg, #e8c1f8, #d6f5f3); /* Soft gradient background */
-    color: #333;
+    color: black;
     border-radius: 20px; /* Round corners */
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     text-align: center;
