@@ -427,6 +427,38 @@ body {
     overflow-y: auto;
     animation: fadeInBody 1s ease-in-out;
 }
+/* Header Styling */
+.header {
+    display: flex;
+    align-items: center;  /* Vertically align logo and text */
+    justify-content: flex-start;  /* Align items to the left */
+    gap: 15px;  /* Space between logo and Gallery */
+    padding: 20px;
+    background-color: #f8f8f8;  /* Optional: background color for header */
+}
+
+/* Logo Styling */
+.logo {
+    width: 50px;  /* Adjust the logo size */
+    height: auto;
+}
+
+/* Gallery Heading Styling */
+.gallery-heading {
+    font-family: 'Courgette', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;  /* Remove default margin */
+    text-align: left;  /* Align text to the left */
+    width: 100%;  /* Make sure the heading takes up full width */
+}
+
+/* Optional: Hover effect for Gallery heading */
+.gallery-heading:hover {
+    color: #00bfff;
+}
+
+
 
 /* Fade-in animation for body */
 @keyframes fadeInBody {
@@ -519,11 +551,15 @@ body {
 .gallery-item {
     overflow: hidden;
     border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+    transform: translateY(50px);
+    transition: transform 0.6s ease, box-shadow 0.3s, filter 0.3s,transform 0.6s ease;
     cursor: pointer;
     animation: fadeInGalleryItem 1s ease-in-out;
 }
-
+.gallery-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
 /* Hover effect for gallery items */
 .gallery-item:hover {
     transform: scale(1.1); /* Slight zoom effect */
@@ -613,10 +649,12 @@ body {
     color: #fff;
     font-size: 30px;
     font-weight: bold;
-    transition: color 0.3s;
+    cursor: pointer;
 }
 
-.close:hover,
+.close:hover{
+    color: #f39c12;
+}
 .close:focus {
     color: #00bfff;
     text-decoration: none;
@@ -631,3 +669,189 @@ body {
     font-size: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+
+/*About Section*/
+
+/* General Body Styling */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #1f1f1f;
+    background-image: url("https://4kwallpapers.com/images/wallpapers/moon-river-mountains-gradient-background-blue-night-cold-2880x1800-2527.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Add padding to the top to push the content down */
+  }
+  
+  /* Wrapper Box */
+  .wrapper-box {
+    padding: 20px;
+  }
+  
+  /* Container for Bento Boxes */
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack the boxes vertically */
+    gap: 20px; /* Space between the boxes */
+    align-items: center; /* Center-align the boxes */
+  }
+  
+  /* Bento Boxes */
+  .bento-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%; /* Adjust to ensure it doesn't stretch too much */
+    max-width: 900px; /* Limit the max width of each box */
+    flex-wrap: nowrap; /* Prevent wrapping of image and text inside the box */
+  }
+  
+  /* Image Sections */
+  .box-image-left,
+  .box-image-right {
+    flex: 0 0 40%; /* Maintain 40% width for images */
+    text-align: center;
+  }
+  
+  .box-image-left img,
+  .box-image-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image fills the area */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Alternate Image Position */
+  .box-image-right {
+    order: 2;
+  }
+  
+  .box-content {
+    flex: 0 0 55%; /* Adjust to match the 55% width of the image */
+    height: 250px; /* Adjust height to make it more rectangular */
+    background: rgba(0, 0, 0, 0.6); /* Blackish glass effect */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Content Styles */
+  .box-content h2 {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin-bottom: 10px;
+  }
+  
+  .box-content p,
+  .features-list {
+    font-size: 0.9em;
+    color: #f3eded;
+    line-height: 1.4;
+  }
+  
+  .features-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+  
+  .features-list li {
+    margin-bottom: 6px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .features-list li::before {
+    content: "•";
+    color: #ffcf00;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  /* Navigation Bar */
+  /* Navigation Bar */
+  .navbar {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 30px 40px; /* Adjust the navbar padding (if needed) */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    left: 0;
+    right: 0;
+  }
+  
+  /* Adjust menu items to the right but move them slightly left */
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    gap: 30px;
+    margin-right: 20px; /* Add margin-right to move items to the left */
+  }
+  
+  .navbar ul li {
+    display: inline;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #ffd700; /* Bright yellow */
+    font-size: 1.4em; /* Increased font size */
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ffa500; /* Lighter orange on hover */
+  }
+  
+  /* General Styling for the top sections */
+  .top-sections {
+    display: flex;
+    justify-content: space-between; /* Spread out sections */
+    margin-top: 20px;
+    padding: 0 20px; /* Add padding to the left and right */
+  }
+  
+  .top-section {
+    text-align: center;
+    width: 30%; /* Ensure each section takes up 30% of the width */
+  }
+  
+  .top-section-icon {
+    font-size: 3em; /* Larger icons */
+    color: #ffd700;
+  }
+  
+  .top-section h3 {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin-top: 10px;
+  }
+  
+  .top-section p {
+    font-size: 1em;
+    color: #074f48;
+    margin-top: 10px;
+    font-weight: bold;
+  }
