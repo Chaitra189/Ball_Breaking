@@ -705,6 +705,7 @@ body {
     width: 45%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 5px solid #000; /* Adds a 5px solid black border around the image */
 }
 
 .game-description {
