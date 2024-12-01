@@ -41,45 +41,64 @@
       </div>
       <div class="gallery-container">
         <div class="gallery-item">
-          <img src="gallery/img1.png" alt="Image 1" />
+          <img src="gallery/img1 (2).png" alt="Image 1" />
         </div>
         <div class="gallery-item">
-          <img src="gallery/img2.png" alt="Image 2" />
+          <img src="gallery/img2 (2).png" alt="Image 2" />
         </div>
         <div class="gallery-item">
-          <img src="gallery/img3.png" alt="Image 3" />
+          <img src="gallery/img3 (2).png" alt="Image 3" />
         </div>
         <div class="gallery-item">
-          <img src="gallery/img8.png" alt="Image 4" />
+          <img src="gallery/img8 (2).png" alt="Image 4" />
         </div>
         <div class="gallery-item">
-          <img src="gallery/img5.png" alt="Image 5" />
+          <img src="gallery/img5 (2).png" alt="Image 5" />
         </div>
         <div class="gallery-item">
           <img src="gallery/img6.png" alt="Image 6" />
         </div>
         <div class="gallery-item">
-          <img src="gallery/img7.png" alt="Image 7" />
+          <img src="gallery/img7 (2).png" alt="Image 7" />
         </div>
         <div class="gallery-item">
-            <img src="gallery/img4.png" alt="Image 8" />
+            <img src="gallery/img4 (2).png" alt="Image 8" />
           </div>
           <div class="gallery-item">
-            <img src="gallery/img9.png" alt="Image 9" />
+            <img src="gallery/img9 (2).png" alt="Image 9" />
           </div>
-          <div class="gallery-item">
-            <img src="gallery/img10.png" alt="Image 10" />
           </div>
       </div>
     </main>
 
-    <!-- Modal for Expanded Image -->
     <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="img1" />
-      <div id="caption"></div>
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <footer>
+        <p>Gallery Footer © 2024</p>
+    </footer>
+
+    <script>
+        // Optional: Modal script for expanded view
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        const close = document.getElementsByClassName("close")[0];
+
+        document.querySelectorAll(".gallery-item img").forEach(img => {
+            img.onclick = () => {
+                modal.style.display = "block";
+                modalImg.src = img.src;
+                captionText.innerHTML = img.alt;
+            };
+        });
+
+        close.onclick = () => {
+            modal.style.display = "none";
+        };
+    </script>
+</body>
 </html>

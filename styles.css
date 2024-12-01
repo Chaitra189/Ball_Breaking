@@ -417,7 +417,7 @@ footer .social-media a:hover {
 /*Gallery page*/
 body {
     font-family: 'Courgette', sans-serif;
-    background-image: url('gallery/bgi3.png'); /* Replace with your background image path */
+    background-image: url('Images/gpt.png'); /* Replace with your background image path */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -425,6 +425,7 @@ body {
     overflow-y: auto;
     animation: fadeInBody 1s ease-in-out;
 }
+
 /* Header Styling */
 .header {
     display: flex;
@@ -456,8 +457,6 @@ body {
     color: #00bfff;
 }
 
-
-
 /* Fade-in animation for body */
 @keyframes fadeInBody {
     0% {
@@ -467,7 +466,6 @@ body {
         opacity: 1;
     }
 }
-
 
 /* Main container layout with fixed width and responsive grid */
 .main-container {
@@ -533,15 +531,17 @@ body {
         transform: translateY(0);
     }
 }
-
-
+/* Gallery item (images) */
 /* Gallery container layout with responsive grid */
+/* Gallery container layout with fixed grid for images of 1600x898px */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%; /* Use the full width for a cleaner layout */
-    padding-left: 20px;
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    gap: 30px; /* Space between images */
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 50px; /* Space between last image and footer */
     transition: all 0.3s ease;
 }
 
@@ -549,23 +549,35 @@ body {
 .gallery-item {
     overflow: hidden;
     border-radius: 8px;
-    transform: translateY(50px);
-    transition: transform 0.6s ease, box-shadow 0.3s, filter 0.3s,transform 0.6s ease;
+    transition: transform 0.6s ease, box-shadow 0.3s, filter 0.3s;
     cursor: pointer;
     animation: fadeInGalleryItem 1s ease-in-out;
+    padding: 0;
 }
-.gallery-item.animate {
-    opacity: 1;
-    transform: translateY(0);
+
+/* Image styling */
+.gallery-item img {
+    width: 100%; /* Make the images take up 100% of the item width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 8px;
+    object-fit: cover; /* Ensure the image covers the container */
 }
+
 /* Hover effect for gallery items */
 .gallery-item:hover {
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.05); /* Zoom effect */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     filter: brightness(1.2); /* Slight brightness increase */
 }
 
-/* Animation for gallery items */
+/* Hover effect for images */
+.gallery-item:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Gallery Item Animation */
 @keyframes fadeInGalleryItem {
     0% {
         opacity: 0;
@@ -577,18 +589,32 @@ body {
     }
 }
 
-/* Image styling */
+/* Add space between the last image and footer */
+.main-container {
+    padding-bottom: 80px; /* Adds extra space at the bottom */
+}
+
+
+/* Ensure images fill the space and are larger */
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the area without distorting */
     display: block;
     transition: transform 0.3s ease-in-out;
     border-radius: 8px;
 }
 
+/* Hover effect for gallery items */
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    filter: brightness(1.2); /* Slight brightness increase */
+}
+
 /* Hover effect for images */
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zoom effect on hover */
 }
 
 /* Modal Styles for Expanded Image View */
@@ -596,14 +622,42 @@ body {
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 10;
-    padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    animation: fadeInModal 0.5s ease-out;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 50px 20px; /* Add padding around modal */
+    box-sizing: border-box;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+/* Image inside modal */
+.modal-content {
+    display: block;
+    max-width: 80%;
+    margin: 50px auto; /* Center image with space from the top */
+    height: auto;
+    border-radius: 10px;
+    animation: scaleInImage 0.5s ease-out;
+    transition: transform 0.3s ease;
+}
+
+/* Close button for the modal */
+.close {
+    position: absolute; /* Absolute within modal */
+    top: 100px; /* Adjust close button position */
+    right: 80px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 11; /* Ensure it appears above everything */
+}
+
+.close:hover {
+    color: #f39c12;
 }
 
 /* Animation for modal fade-in */
@@ -614,17 +668,6 @@ body {
     100% {
         opacity: 1;
     }
-}
-
-/* Image inside modal */
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;  /* Maximum width of the expanded image */
-    height: auto;
-    border-radius: 10px;
-    animation: scaleInImage 0.5s ease-out;
-    transition: transform 0.3s ease;
 }
 
 /* Animation for the image inside the modal */
@@ -639,26 +682,6 @@ body {
     }
 }
 
-/* Close button for the modal */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: #fff;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover{
-    color: #f39c12;
-}
-.close:focus {
-    color: #00bfff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* Caption text for the modal */
 #caption {
     text-align: center;
@@ -667,7 +690,6 @@ body {
     font-size: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 
 /*About Section*/
 
