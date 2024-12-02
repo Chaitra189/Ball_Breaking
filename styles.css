@@ -414,7 +414,7 @@ footer .social-media a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*Gallery page*/
+/*Gallery Page*/
 body {
     font-family: 'Courgette', sans-serif;
     background-image: url('Images/gpt.png'); /* Replace with your background image path */
@@ -424,6 +424,7 @@ body {
     color: #808080;
     overflow-y: auto;
     animation: fadeInBody 1s ease-in-out;
+    margin: 0; /* Ensure no extra margin for the body */
 }
 
 /* Header Styling */
@@ -433,7 +434,10 @@ body {
     justify-content: flex-start;  /* Align items to the left */
     gap: 15px;  /* Space between logo and Gallery */
     padding: 20px;
-    background-color: #f8f8f8;  /* Optional: background color for header */
+    background-color: #f8f8f8;
+    position: sticky; /* Keep header at the top */
+    top: 0;
+    z-index: 1000;
 }
 
 /* Logo Styling */
@@ -447,9 +451,9 @@ body {
     font-family: 'Courgette', sans-serif;
     font-size: 2.5rem;
     color: #333;
-    margin: 0;  /* Remove default margin */
-    text-align: left;  /* Align text to the left */
-    width: 100%;  /* Make sure the heading takes up full width */
+    margin: 0;
+    text-align: left;
+    width: 100%;
 }
 
 /* Optional: Hover effect for Gallery heading */
@@ -467,21 +471,17 @@ body {
     }
 }
 
-/* Main container layout with fixed width and responsive grid */
+/* Main container layout */
 .main-container {
     display: flex;
-    justify-content: center;  /* Center the content horizontally */
-    align-items: center;  /* Center the content vertically */
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    flex-wrap: wrap;
+    gap: 30px;
     animation: slideIn 1s ease-out;
-    gap: 30px; /* Increase space between elements */
 }
 
 /* Animation for main container */
@@ -498,26 +498,24 @@ body {
 
 /* Text Box Styling */
 .text-box {
-    width: 100%;
-    max-width: 800px; /* Adjust the size */
-    margin-top: 50px; /* Positioning the text box a bit lower */
-    padding: 30px; /* Add more padding for a spacious feel */
-    background: linear-gradient(135deg, #e8c1f8, #d6f5f3); /* Soft gradient background */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #e8c1f8, #d6f5f3);
     color: black;
-    border-radius: 20px; /* Round corners */
-    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 20px;
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
     line-height: 1.6;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInTextBox 1s ease-out; /* Fade-in animation */
+    animation: fadeInTextBox 1s ease-out;
 }
 
 /* Hover Effect */
 .text-box:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Fade-in Animation for Text Box */
@@ -531,136 +529,108 @@ body {
         transform: translateY(0);
     }
 }
-/* Gallery item (images) */
-/* Gallery container layout with responsive grid */
-/* Gallery container layout with fixed grid for images of 1600x898px */
+
+/* Masonry-style gallery container */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
-    gap: 30px; /* Space between images */
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 50px; /* Space between last image and footer */
-    transition: all 0.3s ease;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 15px;
+    padding: 20px;
+    margin-bottom: 50px;
 }
 
-/* Gallery item (images) */
+/* Dynamic gallery item with hover effect */
 .gallery-item {
-    overflow: hidden;
+    position: relative;
     border-radius: 8px;
-    transition: transform 0.6s ease, box-shadow 0.3s, filter 0.3s;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    animation: fadeInGalleryItem 1s ease-in-out;
-    padding: 0;
 }
 
 /* Image styling */
 .gallery-item img {
-    width: 100%; /* Make the images take up 100% of the item width */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 8px;
-    object-fit: cover; /* Ensure the image covers the container */
-}
-
-/* Hover effect for gallery items */
-.gallery-item:hover {
-    transform: scale(1.05); /* Zoom effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    filter: brightness(1.2); /* Slight brightness increase */
-}
-
-/* Hover effect for images */
-.gallery-item:hover img {
-    transform: scale(1.05); /* Zoom effect on hover */
-}
-
-/* Gallery Item Animation */
-@keyframes fadeInGalleryItem {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Add space between the last image and footer */
-.main-container {
-    padding-bottom: 80px; /* Adds extra space at the bottom */
-}
-
-
-/* Ensure images fill the space and are larger */
-.gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the area without distorting */
-    display: block;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Hover effect for gallery items */
+/* Hover zoom effect */
 .gallery-item:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    filter: brightness(1.2); /* Slight brightness increase */
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover effect for images */
-.gallery-item:hover img {
-    transform: scale(1.05); /* Zoom effect on hover */
+/* Dynamic grid item heights */
+.gallery-item:nth-child(odd) {
+    grid-row: span 3;
 }
 
-/* Modal Styles for Expanded Image View */
+.gallery-item:nth-child(even) {
+    grid-row: span 2;
+}
+
+/* Overlay for image captions */
+.gallery-item::before {
+    content: attr(data-caption);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show overlay on hover */
+.gallery-item:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal styling */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    padding: 50px 20px; /* Add padding around modal */
-    box-sizing: border-box;
-    animation: fadeInModal 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeInModal 0.5s ease;
 }
 
-/* Image inside modal */
+/* Display modal image */
 .modal-content {
-    display: block;
     max-width: 80%;
-    margin: 50px auto; /* Center image with space from the top */
-    height: auto;
-    border-radius: 10px;
-    animation: scaleInImage 0.5s ease-out;
-    transition: transform 0.3s ease;
+    max-height: 80%;
+    border-radius: 8px;
+    animation: scaleInImage 0.5s ease;
+    margin: auto;
 }
 
-/* Close button for the modal */
+/* Close button */
 .close {
-    position: absolute; /* Absolute within modal */
-    top: 100px; /* Adjust close button position */
-    right: 80px;
+    position: absolute;
+    top: 80px;
+    right: 50px;
     color: #fff;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 28px;
     cursor: pointer;
-    z-index: 11; /* Ensure it appears above everything */
+    z-index: 11;
 }
 
-.close:hover {
-    color: #f39c12;
-}
-
-/* Animation for modal fade-in */
+/* Fade-in effect for modal */
 @keyframes fadeInModal {
     0% {
         opacity: 0;
@@ -670,15 +640,13 @@ body {
     }
 }
 
-/* Animation for the image inside the modal */
+/* Image scaling animation */
 @keyframes scaleInImage {
     0% {
         transform: scale(0.8);
-        opacity: 0;
     }
     100% {
         transform: scale(1);
-        opacity: 1;
     }
 }
 
