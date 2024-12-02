@@ -296,7 +296,7 @@ body.download {
 .game-info h1 {
     font-size: 36px;
     color: #000000;
-    margin-top: 10px;  /* Adjust this if needed */
+    margin-top: 25px;  /* Adjust this if needed */
     margin-bottom: 20px;  /* Small margin to separate from other elements */
 }
 
